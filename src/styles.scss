@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/scss/bootstrap';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import "~angular-notifier/styles";
+
+
+
+// @import "~font-awesome/css/font-awesome.css";
+body {
+  position: relative;
+  font-family: 'Open Sans',arial,'microsoft jhenghei',sans-serif;
+  line-height: 1;
+  color: #534741;
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+html, body {
+  height: 100%;
+}
+html, body {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+}
+a, button, input, select, textarea {
+  color: inherit;
+}
+a:hover{
+  text-decoration: none;
+  color:inherit
+}
+// CSS cho slideshow
+.carousel-indicators {
+  bottom: -10px;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 12px;
+}
+.carousel-control-prev {
+  width: 50px;
+}
+.carousel-control-next {
+  width: 50px;
+}

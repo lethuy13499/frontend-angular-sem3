@@ -1,0 +1,32 @@
+.header__inner {
+    padding-bottom: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+a, button, div, input, select, textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+.header__nav .nav__item:first-child {
+    display: none;
+}
+.header__nav .nav__item {
+    position: relative;
+    margin-left: 24px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-transform: uppercase;
+}
+.header__nav .nav__item > a {
+    padding-bottom: 15px;
+}
+a, button, input, select, textarea {
+    color: inherit;
+}
+a {
+    text-decoration: none;
+}
+

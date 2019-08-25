@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    html,
+    body {
+      box-sizing: border-box;
+    }
+
+    html {
+      /* body will set it's height based on its parent, which is html */
+      height: 100%;
+
+      /* set full width as well */
+      width: 100%;
+    }
+
+    body {
+      /* min-height is needed for pages that might scroll, ie they may contain _more_ than 100% of viewport height */
+      min-height: 100%;
+
+      /* needed to prevent unwanted scroll-bars */
+      margin: 0;
+      padding: 0;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    .btn-sm {
+      font-size: 8px !important;
+    }
+
+    .btn {
+      padding: 0.275rem 0.75rem;
+      font-size: 12px !important;
+    }
+
+    .required_field {
+      color: red;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+  <meta charset="utf-8" />
+  <title>Shopping</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+  <script src="https://theroyalgardenhotel.com.hk/skin/js/jquery-1.8.3.min.js"></script>
+  <script src="https://theroyalgardenhotel.com.hk/skin/js/magnific-popup.min.js" defer></script>
+<script src="https://theroyalgardenhotel.com.hk/skin/js/owlcarousel/owl.carousel.min.js" defer></script>
+  <script src="https://theroyalgardenhotel.com.hk/skin/js/iconfont.js?v=1.06061143" defer></script>
+
+<script src="https://theroyalgardenhotel.com.hk/skin/js/laydate/laydate.js"></script>
+<script src="https://theroyalgardenhotel.com.hk/skin/js/select3/select3.js?v=1.06061143"></script>
+<script src="https://theroyalgardenhotel.com.hk/skin/js/script.js?v=1.06061143" defer></script>
+<script src="https://theroyalgardenhotel.com.hk/skin/js/temp-fix.js?v=1.06061143" defer></script>
+
+<!-- Sweet Alert 2 plugin -->
+<script src="https://theroyalgardenhotel.com.hk/skin/js/sweetalert2.js" defer></script>
+<link href="https://theroyalgardenhotel.com.hk/skin/css/sweetalert2.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+  
+
+  <!-- Styles -->
+  <link href="https://theroyalgardenhotel.com.hk/skin/css/magnific-popup.css" rel="stylesheet">
+  <link href="https://theroyalgardenhotel.com.hk/skin/css/fonts.css?v=1.06061143" rel="stylesheet">
+  <link href="https://theroyalgardenhotel.com.hk/skin/css/normalize.css" rel="stylesheet">
+<link href="https://theroyalgardenhotel.com.hk/skin/js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="https://theroyalgardenhotel.com.hk/skin/js/select3/select3.css?v=1.06061143" rel="stylesheet">
+  <link href="https://theroyalgardenhotel.com.hk/skin/css/style.css?v=1.06061143" rel="stylesheet">
+<link href="https://theroyalgardenhotel.com.hk/skin/css/temp-fix.css?v=1.06061143" rel="stylesheet">
+  <script type="text/javascript" src="./assets/bower_components/jquery/dist/jquery.min.js"></script>  
+<script  type="text/javascript" src="./assets/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript"  src="./assets/bower_components/fastclick/lib/fastclick.js"></script>
+<script type="text/javascript" src="./assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="./assets/dist/js/adminlte.min.js"></script>
+<script type="text/javascript" src="./assets/dist/js/demo.js"></script>
+<link rel="stylesheet" type="text/css" href="./assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="./assets/bower_components/font-awesome/css/font-awesome.min.css">
+<!-- Ionicons -->
+<link rel="stylesheet" type="text/css" href="./assets/bower_components/Ionicons/css/ionicons.min.css">
+<!-- Theme style -->
+<link rel="stylesheet" type="text/css" href="./assets/dist/css/AdminLTE.min.css">
+<!-- iCheck -->
+<link rel="stylesheet" type="text/css" href="./assets/plugins/iCheck/square/blue.css">
+</head>
+
+<body>
+  <app-root></app-root>
+</body>
+
+</html>
