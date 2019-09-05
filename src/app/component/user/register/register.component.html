@@ -7,85 +7,85 @@
         <div class="register-box-body">
             <p class="login-box-msg">Register a new membership</p>
 
-            <form [formGroup]="createForm" (ngSubmit)="onSubmitInsert()" enctype="multipart/form-data">
+            <form [formGroup]="createForm" enctype="multipart/form-data">
                 <div class="form-group has-feedback">
 
-                    <input type="text" class="form-control" placeholder="Full name" formControlName="fullname">
+                    <input type="text" class="form-control" placeholder="Full name" formControlName="Fullname">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     <label class="col-lg-12 control-label">
                             <mat-error *ngIf="
-                      createForm.get('fullname').hasError('required') &&
-                      createForm.get('fullname').touched " style="color: red">
+                      createForm.get('Fullname').hasError('required') &&
+                      createForm.get('Fullname').touched " style="color: red">
                                 Tên không được để trống!
                             </mat-error>
-                            <mat-error *ngIf="createForm.get('fullname').hasError('maxlength')" style="color: red">
+                            <mat-error *ngIf="createForm.get('Fullname').hasError('maxlength')" style="color: red">
                                 Tên không được quá 100 kí tự!
                             </mat-error>
-                            <mat-error *ngIf="createForm.get('fullname').hasError('minlength')" style="color: red">
+                            <mat-error *ngIf="createForm.get('Fullname').hasError('minlength')" style="color: red">
                                 Tên không được ít hơn 6 kí tự!
                             </mat-error>
-                            <mat-error *ngIf="createForm.get('fullname').hasError('pattern')">
+                            <mat-error *ngIf="createForm.get('Fullname').hasError('pattern')">
                                 Tên không được nhập space vào đầu tiên!
                             </mat-error>
                             </label>
                 </div>
                 <div class="form-group has-feedback">
 
-                    <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                    <input type="email" class="form-control" placeholder="Email" formControlName="Email">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     <label class="col-lg-12 control-label"><mat-error *ngIf="
-                        createForm.get('email').hasError('required') &&
-                        createForm.get('email').touched
+                        createForm.get('Email').hasError('required') &&
+                        createForm.get('Email').touched
                       " style="color: red">
                                   email không được để trống!
                               </mat-error>
-                              <mat-error *ngIf="createForm.get('email').hasError('maxlength')" style="color: red">không được quá 50 ký tự!</mat-error>
-                              <mat-error *ngIf="createForm.get('email').hasError('pattern')">email không hợp lệ!</mat-error>
+                              <mat-error *ngIf="createForm.get('Email').hasError('maxlength')" style="color: red">không được quá 50 ký tự!</mat-error>
+                              <mat-error *ngIf="createForm.get('Email').hasError('pattern')">email không hợp lệ!</mat-error>
                               </label>
                 </div>
                 <div class="form-group has-feedback">
 
-                    <input type="text" class="form-control" placeholder="Phone" formControlName="phone">
+                    <input type="text" class="form-control" placeholder="Phone" formControlName="Phone">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     <label class="col-lg-12 control-label">
                             <mat-error *ngIf="
-                      createForm.get('phone').hasError('required') &&
-                      createForm.get('phone').touched
+                      createForm.get('Phone').hasError('required') &&
+                      createForm.get('Phone').touched
                     " style="color: red">
                                 không được để trống!
                             </mat-error>
-                            <mat-error *ngIf="createForm.get('phone').hasError('pattern')">chỉ được nhập số!</mat-error>
-                            <mat-error *ngIf="createForm.get('phone').hasError('maxlength')">không được quá 11 số!</mat-error>
+                            <mat-error *ngIf="createForm.get('Phone').hasError('pattern')">chỉ được nhập số!</mat-error>
+                            <mat-error *ngIf="createForm.get('Phone').hasError('maxlength')">không được quá 11 số!</mat-error>
                             </label>
                 </div>
                 <div class="form-group has-feedback" formGroupName="pass">
 
-                    <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                    <input type="password" class="form-control" placeholder="Password" formControlName="Password">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     <label class="col-lg-12 control-label">
                             <mat-error *ngIf="
-                  createForm.get('pass.password').hasError('required') &&
-                  createForm.get('pass.password').touched
+                  createForm.get('pass.Password').hasError('required') &&
+                  createForm.get('pass.Password').touched
                 " style="color: red">
                             không được để trống!
                         </mat-error>
-                        <mat-error *ngIf="createForm.get('pass.password').hasError('minlength')">
+                        <mat-error *ngIf="createForm.get('pass.Password').hasError('minlength')">
                             ít nhất 6 kí tự!
                         </mat-error>
-                        <mat-error *ngIf="createForm.get('pass.password').hasError('maxlength')">
+                        <mat-error *ngIf="createForm.get('pass.Password').hasError('maxlength')">
                             không được quá 100 kí tự!
                         </mat-error>
-                        <mat-error *ngIf="createForm.get('pass.password').hasError('pattern')">bao gồm số và chữ cái, không bao gồm dấu cách!</mat-error>
+                        <mat-error *ngIf="createForm.get('pass.Password').hasError('pattern')">bao gồm số và chữ cái, không bao gồm dấu cách!</mat-error>
                         </label>
                 </div>
                 <div class="form-group has-feedback" formGroupName="pass">
 
-                    <input type="password" class="form-control" placeholder="Confirm password" formControlName="confirmPassword">
+                    <input type="password" class="form-control" placeholder="Confirm password" formControlName="ConfirmPassword">
                     <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     <label class="col-lg-12 control-label">
                             <mat-error *ngIf="
-              createForm.get('pass.confirmPassword').hasError('required') &&
-              createForm.get('pass.confirmPassword').touched
+              createForm.get('pass.ConfirmPassword').hasError('required') &&
+              createForm.get('pass.ConfirmPassword').touched
             " style="color: red">
                         không được để trống!
                     </mat-error>
@@ -101,7 +101,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-xs-4">
-                        <div type="submit" class="btn btn-primary btn-block btn-flat" value="Đăng kí" [disabled]="!createForm.valid">Register</div>
+                        <button class="btn btn-primary btn-block btn-flat" (click)="onSubmitInsert()" value="Đăng kí">Register</button>
                     </div>
                     <!-- /.col -->
                 </div>
@@ -112,4 +112,5 @@
         </div>
         <!-- /.form-box -->
     </div>
+
 </body>

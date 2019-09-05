@@ -28,18 +28,11 @@ function comparePassword(c: AbstractControl): ValidationErrors | null {
 })
 export class RegisterComponent implements OnInit {
 listUser:Object[] = [];
+listPractice: Object[] = [];
 createForm:FormGroup;
-user:User={
-    UserId:1,
-    UserName:'',
-    Password:'',
-    Fullname:'',
-    Phone:'',
-    Email:'',
-    Adress:'',
-    Avatar:'',
-    Status:1
-}
+user:User;
+    
+
   errorExistEmail = '';
   successExistEmail = '';
   showCreateForm: Boolean = false;
@@ -53,17 +46,22 @@ user:User={
 
   ngOnInit() {
     this.CreateForm();
-        
+ 
+    this.userService.getAllUser().subscribe(res => {
+      this.listPractice=res;
+      console.log(this.listPractice);
+        }
+        )
     
   
   }
   CreateForm(){
     this.createForm = this.fb.group({
-      fullname: ['', [Validators.required,
+      Fullname: ['', [Validators.required,
          Validators.maxLength(50),
          Validators.pattern('.*\\S.*[a-zA-z0-9 ]')]],
       // tslint:disable-next-line:max-line-length
-      email: [
+      Email: [
         '',
         [
           Validators.required,
@@ -77,7 +75,7 @@ user:User={
       pass: this.fb.group(
         {
           // tslint:disable-next-line:max-line-length
-          password: [
+          Password: [
             '',
             [
               Validators.required,
@@ -86,13 +84,13 @@ user:User={
               Validators.pattern(/^(?!.* )(?=.*\d)(?=.*[a-z]).{6,100}$/)
             ]
           ],
-          confirmPassword: ['', [Validators.required, Validators.minLength(6)]]
+          ConfirmPassword: ['', [Validators.required, Validators.minLength(6)]]
         },
         {
           validator: [comparePassword]
         }
       ),
-      phone: [
+      Phone: [
         '',
         [
           Validators.required,
@@ -105,20 +103,21 @@ user:User={
 
 
 onSubmitInsert() {
+  
   this.errorExistEmail = '';
     this.successExistEmail = '';
     const { valid, value } = this.createForm;
     if (valid) {
-      this.user.Fullname = this.createForm.get('fullname').value;
-      this.user.Email = this.createForm.get('email').value;
-      this.user.Password = this.createForm.get('pass.password').value;
-      this.user.Phone = this.createForm.get('phone').value;
-      const formData = new FormData();
-      formData.append('user', JSON.stringify(this.user));
-      this.userService.createUser(formData).subscribe(
+      this.user.Fullname = this.createForm.get('Fullname').value;
+      this.user.Email = this.createForm.get('Email').value;
+      this.user.Password = this.createForm.get('pass.Password').value;
+      this.user.Phone = this.createForm.get('Phone').value;
+      //const formData = new FormData();
+      //formData.append('user', JSON.stringify(this.user));
+      this.userService.createUser(this.createForm.value).subscribe(
         res=>{
           this.listUser=res;
-          console.log(this.listUser)
+          
          
         },
        
@@ -126,8 +125,12 @@ onSubmitInsert() {
           this.errorExistEmail = 'Email đã tồn tại!';
         }
       )
+      console.log(this.listUser)
 }
 
+}
+getuser(){
+ 
 }
 }
 
