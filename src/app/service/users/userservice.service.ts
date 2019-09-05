@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
 export class UserserviceService {
 
   constructor(private http: HttpClient) { }
-  getAllUser(){
-    return this.http.get<User>(Constant.API_GET_ALL_USER)
+  getAllUser(): Observable<any>{
+    return this.http.get<Object>(Constant.API_GET_ALL_USER)
   }
   createUserRegister(user:User){
   return this.http.post<User>(Constant.API_ADD_USER,user)

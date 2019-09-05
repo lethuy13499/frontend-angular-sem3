@@ -7,5 +7,12 @@ export class User{
     Email:string;
     Adress:string;
     Avatar:string;
-    Status:number;
+    Status:boolean;
+    CreatedDate: string;
+    EditedDate: string;
+    Roles: object;
+    Role: any;
+    RoleId: string;
+    GroupName: string;
+    RoleName: string;
 }
