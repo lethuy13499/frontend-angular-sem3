@@ -1,5 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Roleaction } from 'src/app/model/roleAction/RoleAction';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { MyserviceService } from 'src/app/service/myservice/myservice.service';
+import { SelectionModel } from '@angular/cdk/collections';
+import { http } from 'src/app/common/http-header';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-role-action',
@@ -17,7 +26,9 @@ export class RoleActionComponent implements OnInit {
   get RoleName(): FormControl {
     return this.ObjFormGroup.get('RoleName') as FormControl;
   }
-  constructor(private fb: FormBuilder, private http: HttpClient,private myservice:MyserviceService, private router: Router, private activatedRoute: ActivatedRoute,private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, private http: HttpClient,private myservice:MyserviceService, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,private toastr: ToastrService) {
     this.router.events.subscribe((event) => {
       this.myservice.changeMessage('1');
    });
@@ -89,10 +100,10 @@ export class RoleActionComponent implements OnInit {
 
   clickToAddAction() {
     const RoleId = this.activatedRoute.snapshot.paramMap.get('RoleId');
-    this.router.navigate(['Role/RoleActionAdd/', RoleId]);
+    this.router.navigate(['cms/RoleActionAdd/', RoleId]);
   }
   clickToGoBack() {
-    this.router.navigate(['Role/']);
+    this.router.navigate(['cms/role/']);
   }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 }

@@ -18,17 +18,17 @@ import {
   MatPaginatorModule,
   MatTreeModule,
   MatIconModule,
-  MatSortModule
+  MatSortModule,
+  MatCheckboxModule,
+  MatExpansionModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from '@angular/material';
-
-import { CheckRolePermissionOrMenu } from './common/checkRolePermissionOrMenu';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TooltipModule } from 'ngx-bootstrap';
 import { NotifierModule } from 'angular-notifier';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTooltipModule } from '@angular/material/tooltip';
 import { TemplateComponent } from './component/user/template/template.component';
 import { ErrorPageComponent } from './component/user/error-page/error-page.component';
 import { LoginComponent } from './component/user/login/login.component';
@@ -36,22 +36,13 @@ import { CmsModule } from './component/admin/cms/cms.module';
 import { TruncateModule } from 'ng2-truncate';
 import { TemplateModule } from './component/user/template/template.module';
 import { RegisterComponent } from './component/user/register/register.component';
-// export function authHttpServiceFactory(http: Http) {
-//   return new AuthHttp(
-//     new AuthConfig({
-//       headerPrefix: 'Bearer',
-//       tokenName: TOKEN_NAME,
-//       globalHeaders: [{ 'Content-Type': 'application/json' }],
-//       noJwtError: false,
-//       noTokenScheme: true,
-//       tokenGetter: () => localStorage.getItem(TOKEN_NAME)
-//     }),
-//     http
-//   );
-// }
-// export function tokenGetter() {
-//   return localStorage.getItem('access_token');
-// }
+import { GroupComponent } from './component/admin/group/group.component';
+import { ToastrModule } from 'ngx-toastr';
+import { AuthGuard } from './common/auth.guard';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthenticationService } from './service/auth/authentication.service';
+
+
 const routes: Routes = [
   {
     path: 'template',
@@ -75,13 +66,15 @@ const routes: Routes = [
 @NgModule({
   exports: [
 
-    MatTooltipModule,
+  
 
   ],
   entryComponents: [],
   declarations: [
-    AppComponent
-    
+    AppComponent,
+    GroupComponent,
+   
+ 
     // ProductComponent,
     
   
@@ -91,15 +84,10 @@ const routes: Routes = [
     BrowserModule,
     CmsModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
-    TooltipModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-       
-      }
-    }),
+    ToastrModule.forRoot(),
     NgxPaginationModule,
     PopupModule,
     MatPaginatorModule,
@@ -117,6 +105,16 @@ const routes: Routes = [
     PdfViewerModule,
     AngularEditorModule,
     TemplateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCheckboxModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
+  
     
     NotifierModule.withConfig({
       position: {
@@ -189,9 +187,9 @@ const routes: Routes = [
 
   ],
   providers: [
-    { provide: AuthHttp, deps: [Http] },
-    JwtHelperService,
-    CheckRolePermissionOrMenu,
+    AuthenticationService,
+    AuthGuard,
+    CookieService
 
   ],
   bootstrap: [AppComponent]

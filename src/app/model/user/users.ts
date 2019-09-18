@@ -1,5 +1,5 @@
 export class User{
-    UserId:number;
+    UserId:string;
     UserName:string;
     Password:string;
     Fullname:string;
@@ -12,7 +12,7 @@ export class User{
     EditedDate: string;
     Roles: object;
     Role: any;
-    RoleId: string;
-    GroupName: string;
+    RoleId: number;
     RoleName: string;
+  
 }

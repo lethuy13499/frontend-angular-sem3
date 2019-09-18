@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user/users';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { MyserviceService } from 'src/app/service/myservice/myservice.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { SelectionModel } from '@angular/cdk/collections';
+import { http } from 'src/app/common/http-header';
+import { User } from 'src/app/model/user/users';
+
 
 @Component({
   selector: 'app-user',
@@ -9,7 +18,8 @@ import { MyserviceService } from 'src/app/service/myservice/myservice.service';
 })
 export class UserComponent implements OnInit {
   users: User[] = [];
-  userId = '';
+  searchString: string;
+  UserId = '';
   user: User;
   getUsers: User;
   constructor(private myservice:MyserviceService, private http: HttpClient, 
@@ -49,6 +59,10 @@ export class UserComponent implements OnInit {
       }
     });
   }
+  Edit(userId: string) {
+    this.router.navigate(['cms','user', 'update', userId]);
+  }
+
   onSearch() {
     this.http.get<string>('http://localhost:65170/api/User?searchString=' + this.searchString,{ headers: http() }).subscribe(
       {next:(value) => {
@@ -92,9 +106,9 @@ export class UserComponent implements OnInit {
       });
   }
   detail(id) {
-    this.userId = id;
-    console.log(this.userId);
-    this.http.get<string>('http://localhost:65170/api/User/?userid=' + this.userId,{ headers: http() }).subscribe(
+    this.UserId = id;
+    console.log(this.UserId);
+    this.http.get<string>('http://localhost:65170/api/User/?userid=' + this.UserId,{ headers: http() }).subscribe(
       {next:(value) => {
       this.getUsers = JSON.parse(value);
       console.log(this.getUsers);
@@ -104,7 +118,7 @@ export class UserComponent implements OnInit {
       alert(err.error.Message);
     }
   });
-    this.http.get<string>('http://localhost:65170/api/User/' + this.userId,{ headers: http() }).subscribe(
+    this.http.get<string>('http://localhost:65170/api/User/' + this.UserId,{ headers: http() }).subscribe(
   {
     next: (value) => {
       this.user = JSON.parse(value);

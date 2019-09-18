@@ -1,116 +1,116 @@
 <body class="hold-transition register-page">
-    <div class="register-box">
-        <div class="register-logo">
-            <a [routerLink]="['/register']"><b>Register</b></a>
-        </div>
-
-        <div class="register-box-body">
-            <p class="login-box-msg">Register a new membership</p>
-
-            <form [formGroup]="createForm" enctype="multipart/form-data">
-                <div class="form-group has-feedback">
-
-                    <input type="text" class="form-control" placeholder="Full name" formControlName="Fullname">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                    <label class="col-lg-12 control-label">
-                            <mat-error *ngIf="
-                      createForm.get('Fullname').hasError('required') &&
-                      createForm.get('Fullname').touched " style="color: red">
-                                Tên không được để trống!
-                            </mat-error>
-                            <mat-error *ngIf="createForm.get('Fullname').hasError('maxlength')" style="color: red">
-                                Tên không được quá 100 kí tự!
-                            </mat-error>
-                            <mat-error *ngIf="createForm.get('Fullname').hasError('minlength')" style="color: red">
-                                Tên không được ít hơn 6 kí tự!
-                            </mat-error>
-                            <mat-error *ngIf="createForm.get('Fullname').hasError('pattern')">
-                                Tên không được nhập space vào đầu tiên!
-                            </mat-error>
-                            </label>
-                </div>
-                <div class="form-group has-feedback">
-
-                    <input type="email" class="form-control" placeholder="Email" formControlName="Email">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    <label class="col-lg-12 control-label"><mat-error *ngIf="
-                        createForm.get('Email').hasError('required') &&
-                        createForm.get('Email').touched
-                      " style="color: red">
-                                  email không được để trống!
-                              </mat-error>
-                              <mat-error *ngIf="createForm.get('Email').hasError('maxlength')" style="color: red">không được quá 50 ký tự!</mat-error>
-                              <mat-error *ngIf="createForm.get('Email').hasError('pattern')">email không hợp lệ!</mat-error>
-                              </label>
-                </div>
-                <div class="form-group has-feedback">
-
-                    <input type="text" class="form-control" placeholder="Phone" formControlName="Phone">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                    <label class="col-lg-12 control-label">
-                            <mat-error *ngIf="
-                      createForm.get('Phone').hasError('required') &&
-                      createForm.get('Phone').touched
-                    " style="color: red">
-                                không được để trống!
-                            </mat-error>
-                            <mat-error *ngIf="createForm.get('Phone').hasError('pattern')">chỉ được nhập số!</mat-error>
-                            <mat-error *ngIf="createForm.get('Phone').hasError('maxlength')">không được quá 11 số!</mat-error>
-                            </label>
-                </div>
-                <div class="form-group has-feedback" formGroupName="pass">
-
-                    <input type="password" class="form-control" placeholder="Password" formControlName="Password">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    <label class="col-lg-12 control-label">
-                            <mat-error *ngIf="
-                  createForm.get('pass.Password').hasError('required') &&
-                  createForm.get('pass.Password').touched
-                " style="color: red">
-                            không được để trống!
-                        </mat-error>
-                        <mat-error *ngIf="createForm.get('pass.Password').hasError('minlength')">
-                            ít nhất 6 kí tự!
-                        </mat-error>
-                        <mat-error *ngIf="createForm.get('pass.Password').hasError('maxlength')">
-                            không được quá 100 kí tự!
-                        </mat-error>
-                        <mat-error *ngIf="createForm.get('pass.Password').hasError('pattern')">bao gồm số và chữ cái, không bao gồm dấu cách!</mat-error>
-                        </label>
-                </div>
-                <div class="form-group has-feedback" formGroupName="pass">
-
-                    <input type="password" class="form-control" placeholder="Confirm password" formControlName="ConfirmPassword">
-                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
-                    <label class="col-lg-12 control-label">
-                            <mat-error *ngIf="
-              createForm.get('pass.ConfirmPassword').hasError('required') &&
-              createForm.get('pass.ConfirmPassword').touched
-            " style="color: red">
-                        không được để trống!
-                    </mat-error>
-                    </label>
-                </div>
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                <input type="checkbox"> I agree to the <a href="#">terms</a>
-              </label>
-                        </div>
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button class="btn btn-primary btn-block btn-flat" (click)="onSubmitInsert()" value="Đăng kí">Register</button>
-                    </div>
-                    <!-- /.col -->
-                </div>
-            </form>
-
-
-            <a [routerLink]="['/login']" class="text-center">I already have a membership</a>
-        </div>
-        <!-- /.form-box -->
+  <div class="register-box">
+    <div class="register-logo">
+      <a href="" style="color: skyblueS">Register T-Cake</a>
     </div>
 
+    <div class="register-box-body">
+      <p class="login-box-msg">Register a new membership</p>
+
+      <form novalidate (ngSubmit)="onSubmit(inputName.value)" [formGroup]="createForm">
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="UserName" formControlName="UserName" #inputName>
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          <div *ngIf="!UserName.valid && UserName.touched " class="form-group" style="color:red;" role="alert">
+            <div *ngIf="UserName.hasError('required')">
+              UserName is required
+            </div>
+            <div *ngIf="UserName.hasError('minlength')">
+              User Name is required length 5-25 characters
+            </div>
+            <div *ngIf="UserName.hasError('maxlength')">
+              User Name must be less than 25 charaters
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Password" formControlName="Password"
+            [pattern]="passwordPattern">
+          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          <div *ngIf="!Password.valid && Password.touched " style="color: red">
+            <div *ngIf="Password.hasError('required')">
+              Password is required
+            </div>
+            <div *ngIf="Password.hasError('minlength')">
+              Password is required length 5-100 characters
+            </div>
+            <div *ngIf="Password.hasError('maxlength')">
+              Password must be less than 100 characters
+            </div>
+            <div *ngIf="Password.hasError('pattern')">
+              Password cannot contain spaces
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" placeholder="FullName" formControlName="FullName">
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div *ngIf="!FullName.valid && FullName.touched " style="color: red">
+            <div *ngIf="FullName.hasError('required')">
+              Full Name is required
+            </div>
+            <div *ngIf="FullName.hasError('minlength')">
+              Full Name is required length 6-50 characters
+            </div>
+            <div *ngIf="FullName.hasError('maxlength')">
+              Full Name must be less than 50 characters
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" formControlName="Phone"
+          placeholder="Phone number" [pattern]="phonenumber">
+          <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          <div *ngIf="!Phone.valid && Phone.touched " style="color: red">
+            <div *ngIf="Phone.hasError('required')">
+              Phone is required
+            </div>
+            <div *ngIf="Phone.hasError('pattern')">
+              Phone is not correct phone format
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input class="form-control" type="email" name="email" [pattern]="emailPattern" formControlName="Email"
+            placeholder="Email">
+          <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          <div *ngIf="!Email.valid && Email.touched" style="color: red">
+            <div *ngIf="Email?.errors && Email.errors['required']">
+              Email is required
+            </div>
+            <div *ngIf="Email?.errors && Email.errors.pattern">
+              Email is not correct email format
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input class="form-control" type="text" formControlName="Address" placeholder="Address">
+          <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+          <div *ngIf="!Address.valid && Address.touched " style="color: red">
+            <div *ngIf="Address.hasError('required')">
+              Address is required
+            </div>
+          </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input class="form-control" type="file" formControlName="Avatar">
+        </div>
+
+        <div class="row">
+          <div class="col-xs-8">
+              <input type="checkbox">
+            <a [routerLink]="['/login']" class="text-center">I already have a membership</a>
+          </div>
+          <!-- /.col -->
+          <div class="col-xs-4">
+            <button type="submit" (click)="validateForm()" class="btn btn-primary btn-block btn-flat">Register</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+
+    </div>
+    <!-- /.form-box -->
+  </div>
 </body>

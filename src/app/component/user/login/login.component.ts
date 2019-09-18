@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
                 var userName= this.userId +','+this.currentUser;
                 sessionStorage.setItem('user', userName );
              
-                console.log(userName);
+                //console.log(userName);
               });
         
             sessionStorage.setItem('currentPermission', res.Data);
@@ -108,10 +108,7 @@ export class LoginComponent implements OnInit {
             const httpOptions1 = {
               headers: new HttpHeaders({ 'Content-Type': 'application/json', 'permission': sessionId })
             };
-            this.http.get<string>('http://localhost:65170/api/group', httpOptions1).subscribe((val) => {
-              // debugger;
-              console.log(JSON.parse(val));
-            });
+            
             // add cookie
             if (this.rememberMe.value == true) {
               this.cookieService.set('username', this.username.value);

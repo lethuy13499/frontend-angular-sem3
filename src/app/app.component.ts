@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { DateFormatter } from 'ngx-bootstrap';
 import { formatDate } from "@angular/common";
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { Constant } from './common/constant';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,4 +35,3 @@ export class AppComponent implements OnInit {
   	// ngo minh anh update timeout
 }
 }
-
