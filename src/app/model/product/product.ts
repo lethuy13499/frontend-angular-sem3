@@ -1,7 +1,7 @@
 
 export interface Product{
     ProductId:string;
-    C:string;
+    ProductName:string;
     Description:string;
     CreatedDate :string;
     Image :string;

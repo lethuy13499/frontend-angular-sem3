@@ -3,6 +3,5 @@ export interface Slider{
     SliderName:string;
     Slogan:string;
     Image:string;
-    CreatedDate:string;
     CreateBy:string;
 }

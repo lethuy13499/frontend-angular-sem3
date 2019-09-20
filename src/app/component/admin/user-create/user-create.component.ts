@@ -91,7 +91,7 @@ export class UserCreateComponent implements OnInit {
         RoleId: ['',Validators.required],
       }),
       Status: ['',Validators.required],
-      Avatar: [''],
+      Avatar: ['',Validators.required],
       CreatedDate: [''],
       EditedDate: [''],
      
@@ -147,6 +147,7 @@ export class UserCreateComponent implements OnInit {
       this.createForm.get('Password').markAsTouched();
       this.createForm.get('Roles.RoleId').markAsTouched();
       this.createForm.get('Status').markAsTouched();
+      this.createForm.get('Avatar').markAsTouched();
       
       return;
     }

@@ -29,6 +29,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {CKEditorModule} from 'ng2-ckeditor';
 import { ActionComponent } from '../action/action.component';
 import { CategoryComponent } from '../category/category.component';
+import { ProductComponent } from '../product/product.component';
+import { SliderComponent } from '../slider/slider.component';
+import { LoginComponent } from '../../user/login/login.component';
+import { CreateProductComponent } from '../create-product/create-product.component';
+import { CreateSliderComponent } from '../create-slider/create-slider.component';
 
 
 const routes: Routes = [
@@ -71,9 +76,26 @@ const routes: Routes = [
           path:'category',
           component:CategoryComponent
         },
+        {
+          path:'product',
+          component:ProductComponent
+        },
+        {
+          path:'slider',
+          component:SliderComponent
+        },
+        {
+          path:'product/create',
+          component:CreateProductComponent
+        },
+        {
+          path:'slider/create',
+          component:CreateSliderComponent
+        }
+
   
         
-
+    
 
 
         ]
@@ -91,6 +113,12 @@ const routes: Routes = [
     CreateRoleActionComponent,
     ActionComponent,
     CategoryComponent,
+    ProductComponent,
+    SliderComponent,
+    CreateProductComponent,
+    CreateSliderComponent
+ 
+ 
   
   ],
   imports: [

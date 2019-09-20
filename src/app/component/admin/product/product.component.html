@@ -5,7 +5,7 @@
 <div class="container" style="padding-bottom: 20px">
 
   <span data-placement="top" data-toggle="tooltip">
-      <button class="btn btn-primary" style="float: right;">
+      <button  [routerLink]="['create']" class="btn btn-primary" style="float: right;" >
         <span>Create</span>
     </button>
 </span>
@@ -24,14 +24,11 @@
           <!-- FullName Column -->
           <ng-container matColumnDef="Image">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
-            <td mat-cell *matCellDef="let element"> <img [src]="element.Image" /> </td>
+            <td mat-cell *matCellDef="let element"> <img [src]="element.Image" style="width: 60px ;height: 50px;"/> </td>
           </ng-container>
 
           <!-- Enail Column -->
-          <ng-container matColumnDef="CategoryName">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> CategoryName </th>
-            <td mat-cell *matCellDef="let element"> {{element.CategoryName}} </td>
-          </ng-container>
+          
           <ng-container matColumnDef="Description">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
             <td mat-cell *matCellDef="let element"> {{element.Description}} </td>

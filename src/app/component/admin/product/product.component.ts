@@ -1,6 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MyserviceService } from 'src/app/service/myservice/myservice.service';
 import { Product } from 'src/app/model/product/product';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
+import { SelectionModel } from '@angular/cdk/collections';
+import { http } from 'src/app/common/http-header';
 
 @Component({
   selector: 'app-product',
@@ -26,7 +33,7 @@ export class ProductComponent implements OnInit {
       this.myservice.changeMessage('1');
    });
    }
-   displayedColumn: string[] = ['ProductName','Image','CategoryName', 'Description', 'Status', 'CreateBy', 'Action'];
+   displayedColumn: string[] = ['ProductName','Image', 'Description', 'Status', 'CreateBy', 'Action'];
    dataSource = new MatTableDataSource<Product>(this.product);
    selection = new SelectionModel<Product>(true, []);
    @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -37,7 +44,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     
-    this.http.get<string>('http://localhost:65170/api/Product',{ headers: http() }).subscribe(value => {
+    this.http.get<string>('http://localhost:65170/api/Products',{ headers: http() }).subscribe(value => {
       this.dataSource.data = JSON.parse(value);
       console.log(this.dataSource.paginator = this.paginator, this.dataSource.sort = this.sort);
     });
@@ -47,7 +54,7 @@ export class ProductComponent implements OnInit {
   }
   DeleteProduct(Id: string){
     if (confirm('Are you sure you to delete this product?')) {
-      this.http.delete<string>('http://localhost:65170/api/Product/?id=' + Id,{ headers: http() }).subscribe(res => {
+      this.http.delete<string>('http://localhost:65170/api/Products/?id=' + Id,{ headers: http() }).subscribe(res => {
         let result = JSON.parse(res);
         if (result.Success == 1) {
           this.product = this.product.filter(b => b.ProductId !== Id);

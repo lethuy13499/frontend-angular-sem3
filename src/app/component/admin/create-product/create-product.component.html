@@ -1,0 +1,128 @@
+<section class="content">
+
+  <h3>Create</h3>
+
+  <form novalidate (ngSubmit)="onSubmit()" [formGroup]="createForm">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-6">
+
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">ProductName*</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-sm" formControlName="ProductName"
+                placeholder="ProductName" #inputName>
+            </div>
+            <div *ngIf="!ProductName.valid && ProductName.touched " class="form-group" style="color:red;" role="alert">
+              <div *ngIf="ProductName.hasError('required')">
+                ProductName is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Description*</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-sm" formControlName="Description"
+                placeholder="Description" />
+            </div>
+            <div *ngIf="!Description.valid && Description.touched " style="color: red">
+              <div *ngIf="Description.hasError('required')">
+                Description is required
+              </div>
+              <div *ngIf="Description.hasError('minlength')">
+                Description is required length 5-100 characters
+              </div>
+              <div *ngIf="Description.hasError('maxlength')">
+                Description must be less than 100 characters
+              </div>
+              <div *ngIf="Description.hasError('pattern')">
+                Description cannot contain spaces
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-2 control-label">Category*</label>
+              <div class="col-sm-10">
+                <fieldset formGroupName="Categorys">
+                  <select formControlName="CategoryId" class="form-control"
+                    style="width: 100%;" tabindex="-1" aria-hidden="true">
+                    <option value="0" *ngFor="let item of CategoryFormApi" value="{{item?.CategoryId}}">{{item?.CategoryName}}
+                  </select>
+                </fieldset>
+              </div>
+            </div>
+          <!-- FullName -->
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Quantity*</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-sm" formControlName="Quantity" placeholder="Quantity"
+                [pattern]="quantity">
+            </div>
+            <div *ngIf="!Quantity.valid && Quantity.touched " style="color: red">
+              <div *ngIf="Quantity.hasError('required')">
+                Quantity is required
+              </div>
+              <div *ngIf="Quantity.hasError('pattern')">
+                Quantity is not correct phone format
+              </div>
+            </div>
+          </div>
+          <!-- Phone -->
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Price*</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-sm" formControlName="Price" placeholder="Price"
+                [pattern]="price">
+            </div>
+            <div *ngIf="!Price.valid && Price.touched " style="color: red">
+              <div *ngIf="Price.hasError('required')">
+                  Price is required
+              </div>
+              <div *ngIf="Price.hasError('pattern')">
+                Price is not correct phone format
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Avatar</label>
+
+            <div class="input-group" style="width: 267px;height: 40px;">
+              <div class="custom-file col-sm-1">
+                <input type="text" class="form-control"
+                  formControlName="Image">
+              </div>
+             
+
+            </div>
+          </div>
+          <!-- Status -->
+          <div class="form-group row">
+            <label for="inputPassword3" class="col-sm-2 control-label">Status*</label>
+            <div class="col-sm-10">
+              <select formControlName="Status" class="form-control" style="width: 100%;" tabindex="-1"
+                aria-hidden="true">
+                <option value="true">True</option>
+                <option value="false">False</option>
+              </select>
+            </div>
+            <div *ngIf="!Status.valid && Status.touched " style="color: red">
+              <div *ngIf="Status.hasError('required')">
+                Status is required
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 3%">
+      <div class="col-10 offset-2">
+        <button type="submit" class="btn btn-primary" (click)="validateForm()">Create</button>
+      </div>
+    </div>
+  </form>
+</section>

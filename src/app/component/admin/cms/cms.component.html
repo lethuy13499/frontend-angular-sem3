@@ -2,19 +2,9 @@
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
-            <a href="" class="logo">
-              <!-- mini logo for sidebar mini 50x50 pixels -->
-              <span class="logo-mini">
-                  <b *ngIf="isAdmin">ADM</b>
-                  <b *ngIf="isManager">MAN</b>
-                  <b *ngIf="isMember">MEM</b>
-              </span>
-              <!-- logo for regular state and mobile devices -->
-              <span class="logo-lg">
-                <b *ngIf="isAdmin">Admin</b>
-                <b *ngIf="isManager">Manager</b>
-                <b *ngIf="isMember">Member</b>
-              </span>
+            <a href="http://localhost:4200/template/home" class="logo">
+            T-Cake
+             
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -28,7 +18,7 @@
                 <!-- Sidebar user panel -->
                 <div class="user-panel">
                   <div class="pull-left image">
-                    <img src="" class="img-circle" alt="User Image">
+                    <img src="{{Avatar}}" class="img-circle">
                   </div>
                   <div class="pull-left info">
                     <p>{{UserName}}</p>
@@ -37,7 +27,7 @@
                 </div>
                 <!-- search form -->
                 
-                </form>
+             
                 <!-- /.search form -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
@@ -64,46 +54,38 @@
                     <a [routerLink]="['/cms/role']">
                       <i class="fa fa-pie-chart"></i>
                       <span>Action</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
+                     
                     </a>
-                    <ul class="treeview-menu">
-                      <li><a href=""><i class="fa fa-circle-o"></i> Create Action</a></li>
-                      <li><a href=""><i class="fa fa-circle-o"></i> Role Action</a></li>
-                    </ul>
+                   
                   </li>
                   <li class="treeview">
                     <a [routerLink]="['/cms/category']">
                       <i class="fa fa-laptop"></i>
                       <span>Category</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
+                   
                     </a>
-                    <ul class="treeview-menu">
-                      <li><a href=""><i class="fa fa-circle-o"></i> Create Category</a></li>
-                      
-                    </ul>
+                   
                   </li>
                   <li class="treeview">
-                    <a href="#">
-                      <i class="fa fa-edit"></i> <span>Product</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
+                    <a [routerLink]="['/cms/product']">
+                      <i class="fa fa-laptop"></i>
+                      <span>Product</span>
+                   
                     </a>
-                    <ul class="treeview-menu">
-                      <li><a href=""><i class="fa fa-circle-o"></i>Create Product</a></li>
-                      
-                    </ul>
+                   
+                  </li>
+                  <li class="treeview">
+                    <a [routerLink]="['/cms/slider']">
+                      <i class="fa fa-laptop"></i>
+                      <span>Slider</span>
+                   
+                    </a>
+                   
                   </li>
                   <li class="treeview">
                     <a href="#">
                       <i class="fa fa-table"></i> <span>Group</span>
-                      <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                      </span>
+                     
                     </a>
                     <ul class="treeview-menu">
                       <li><a href=""><i class="fa fa-circle-o"></i> User Groups</a></li>

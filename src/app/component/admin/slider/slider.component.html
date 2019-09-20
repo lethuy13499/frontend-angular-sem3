@@ -4,7 +4,7 @@
 <div class="container" style="padding-bottom: 20px">
 
 <span data-placement="top" data-toggle="tooltip">
-    <button class="btn btn-primary" style="float: right;">
+    <button  [routerLink]="['create']" class="btn btn-primary" style="float: right;">
       <span>Create</span>
   </button>
 </span>
@@ -23,18 +23,16 @@
         <!-- FullName Column -->
         <ng-container matColumnDef="Slogan">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Slogan </th>
-          <td mat-cell *matCellDef="let element"> <img [src]="element.Slogan" /> </td>
+          <td mat-cell *matCellDef="let element">{{element.Slogan}}</td>
         </ng-container>
 
         <!-- Enail Column -->
         <ng-container matColumnDef="Image">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
-          <td mat-cell *matCellDef="let element"> {{element.Image}} </td>
+          <td mat-cell *matCellDef="let element"> <img src="{{element.Image}}" style="
+          width: 80px; height: 50px;"> </td>
         </ng-container>
-        <ng-container matColumnDef="CreatedDate">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header> CreatedDate </th>
-          <td mat-cell *matCellDef="let element"> {{element.CreatedDate}} </td>
-        </ng-container>
+      
         <ng-container matColumnDef="CreateBy">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> CreateBy </th>
           <td mat-cell *matCellDef="let element"> {{element.CreateBy}} </td>

@@ -7,9 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PopupModule } from 'ng2-opd-popup';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { Http } from '@angular/http';
-import { AuthConfig, AuthHttp } from 'angular2-jwt';
-import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 import { MatDialogModule } from '@angular/material/dialog';
 import {
   MatSelectModule,
@@ -31,7 +28,6 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateComponent } from './component/user/template/template.component';
 import { ErrorPageComponent } from './component/user/error-page/error-page.component';
-import { LoginComponent } from './component/user/login/login.component';
 import { CmsModule } from './component/admin/cms/cms.module';
 import { TruncateModule } from 'ng2-truncate';
 import { TemplateModule } from './component/user/template/template.module';
@@ -41,7 +37,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthGuard } from './common/auth.guard';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthenticationService } from './service/auth/authentication.service';
-
+import { LoginComponent } from './component/user/login/login.component';
 
 const routes: Routes = [
   {
@@ -73,6 +69,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     GroupComponent,
+   
+  
    
  
     // ProductComponent,

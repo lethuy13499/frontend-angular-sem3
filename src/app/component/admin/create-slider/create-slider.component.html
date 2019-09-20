@@ -1,0 +1,75 @@
+<section class="content">
+  <div class="container">
+
+    <h3>Create</h3>
+
+
+    <div class="">
+
+      <form novalidate (ngSubmit)="onSubmit(inputName.value)" [formGroup]="createForm">
+        <div class="row">
+          <div class="col-md-12">
+
+            <!-- UserName -->
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">SliderName*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" formControlName="SliderName"
+                  placeholder="SliderName" #inputName>
+              </div>
+              <div *ngIf="!SliderName.valid && SliderName.touched " class="form-group" style="color:red;" role="alert">
+                <div *ngIf="SliderName.hasError('required')">
+                  SliderName is required
+                </div>
+
+              </div>
+            </div>
+
+            <!-- password -->
+
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Slogan*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control form-control-sm" formControlName="Slogan" placeholder="Slogan">
+              </div>
+              <div *ngIf="!Slogan.valid && Slogan.touched " style="color: red">
+                <div *ngIf="Slogan.hasError('required')">
+                  Slogan is required
+                </div>
+
+              </div>
+            </div>
+            <!-- Role -->
+
+
+            <!-- FullName -->
+            <div class="form-group row">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Image*</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control " formControlName="Image" placeholder="Image">
+              </div>
+              <div *ngIf="!Image.valid && Image.touched " style="color: red">
+                <div *ngIf="Image.hasError('required')">
+                  Image is required
+                </div>
+
+              </div>
+             
+            </div>
+
+            <!-- Phone -->
+
+          </div>
+
+        </div>
+        <div class="form-group row" style="margin-top: 3%">
+          <div class="col-10 offset-2">
+            <button type="submit" class="btn btn-primary" (click)="validateForm()">Create</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+</div>
+
+</section>

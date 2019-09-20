@@ -99,7 +99,8 @@ listCategory(){
           const result: ResultObject = JSON.parse(res);
           if (result.Success >= 1) {
             this.toastr.success('Create success!', '');
-            
+            this.listCategory();
+            this.router.navigate(['/cms/category']);
           } else {
             this.toastr.success('Create fail !', '');
           }
