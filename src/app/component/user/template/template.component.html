@@ -2,7 +2,7 @@
     <header class="header">
         <div class="header__container container">
             <div class="header__logo">
-                <a class="logo__link" [routerLink]="['template/home']">
+                <a class="logo__link" [routerLink]="['/home']">
                     <img src="https://theroyalgardenhotel.com.hk/uploads/logo/royal-garden-logo.svg"
                         title="Fine Foods Shop" alt="Fine Foods Shop">
                 </a>
@@ -12,9 +12,10 @@
                 <nav class="header__nav" >
                     <div class="nav__item"><a href="https://theroyalgardenhotel.com.hk/">HOME</a></div>
                     <div class="nav__item" *ngFor="let category of listCategorys">
-                        <a href="">{{category?.CategoryName}}
+                        <a [routerLink]="['product/',category?.CategoryId]">{{category?.CategoryName}}
                         </a>
                     </div>
+                    <div class="nav__item" ><a [routerLink]="['/cms/user']">CMS</a></div>
                 </nav>
             
 
@@ -53,9 +54,13 @@
                 <span class="lang__current ">
                         {{UserName}}
                 </span>
+                <span class="lang__current ">
+                       <a [routerLink]="['/login']">Login</a> 
+            </span>
                
             </div>
             </div>
+
         </div>
         
     </header>

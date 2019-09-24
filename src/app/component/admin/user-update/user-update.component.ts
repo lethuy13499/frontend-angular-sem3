@@ -17,10 +17,7 @@ export class UserUpdateComponent implements OnInit {
   editform: FormGroup;
   RolesFormApi: User[] = [];
   rolename: string;
-  constructor(private myservice:MyserviceService,
-     private router: Router, private fb: FormBuilder,
-      private http: HttpClient, private ac: ActivatedRoute,
-      private toar:ToastrService) {
+  constructor(private myservice:MyserviceService, private router: Router, private fb: FormBuilder, private http: HttpClient, private ac: ActivatedRoute,private toar:ToastrService) {
     this.router.events.subscribe((event) => {
       this.myservice.changeMessage('1');
    });
@@ -63,6 +60,7 @@ export class UserUpdateComponent implements OnInit {
     return this.editform.get('Status') as FormControl;
   }
 
+
   getApiRoles() {
     this.http.get<string>('http://localhost:65170/api/role/',{ headers: http() }).subscribe(value => {
       this.RolesFormApi = JSON.parse(value);
@@ -85,7 +83,7 @@ export class UserUpdateComponent implements OnInit {
       Avatar: [''],
       CreatedDate: [''],
       EditedDate: [''],
-     
+      Note: ['']
     });
     const userId = this.ac.snapshot.paramMap.get('Id');
     this.http.get<string>('http://localhost:65170/api/User/?idUser=' + userId,{ headers: http() }).subscribe(value => {
@@ -97,6 +95,7 @@ export class UserUpdateComponent implements OnInit {
     });
 
   }
+
   onSubmit(userName) {
     const value = this.editform.value;
     if (this.editform.valid) {
@@ -112,7 +111,6 @@ export class UserUpdateComponent implements OnInit {
         next: (res) => {
           console.log(res);
           this.toar.success('success', 'Update User');
-          this.router.navigate(['/cms/user']);
         },
         error: (err) => {
           console.log(err);
@@ -133,5 +131,4 @@ validateForm() {
     return;
   }
 }
-
 }

@@ -36,7 +36,7 @@ const routes: Routes = [
         component: LoginComponent
       },
       {
-        path:'product',
+        path:'product/:ProductId',
         component:ProductClientComponent
       },
       {
@@ -44,7 +44,7 @@ const routes: Routes = [
         component: RegisterComponent
       },
       {
-        path:'productdetail',
+        path:'product/:ProductId/productdetail/:ProductId',
         component:ProductDetailComponent
       },
       {
